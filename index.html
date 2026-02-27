@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angara Restro | Authentic Desi Flavors</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-brand">
+            <img src="images/angaralogo.jpeg" alt="Angara Restro Logo" class="nav-logo-img">
+            <div class="logo serif">Angara Restro</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+        </ul>
+        <div class="cart-trigger" onclick="toggleCart()">
+            <div class="cart-btn-yellow">
+                🛒 Cart (<span id="cart-count-top">0</span>)
+            </div>
+            <div class="cart-icon-mobile">
+                🛒<span class="cart-badge" id="cart-count-badge">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="logo-circle-container">
+                <img src="images/angaralogo.jpeg" alt="Angara Restro Main Logo" class="hero-logo">
+            </div>
+            <h1 class="serif">🔥 ANGARA RESTRO 🔥</h1>
+            <p class="subtitle serif">शुद्ध देसी चूल्हे का स्वाद</p>
+            <p class="tagline">Premium Ordering System</p>
+            <a href="#menu" class="btn-primary">View Full Menu</a>
+        </div>
+    </section>
+
+    <section id="menu">
+        
+        <div class="rate-us-container">
+            <a href="https://maps.app.goo.gl/vXqWgsKuiZzqUpy4A" target="_blank" class="rate-btn">📍 Rate Us / Locate Us</a>
+        </div>
+
+        <div class="special-banner" id="selfCookingBanner">
+            <h2>🔥 SELF COOKING 🔥</h2>
+            <p class="subtitle">Experience the joy of cooking on our traditional Desi Chulha</p>
+            <div class="highlight-box">📢 Bring your chicken or mutton — cooking ka full arrangement humara.</div>
+            <div class="special-items-grid">
+                <div class="special-item">
+                    <span>🥚 Egg (8-10 pc)</span>
+                    <span><span class="price-strike">₹300</span> <button class="add-btn-dark" onclick="addToCart('Self Cook - Egg', 300)">+ Add</button></span>
+                </div>
+                <div class="special-item">
+                    <span>🍗 Chicken (Per Kg)</span>
+                    <span><span class="price-strike">₹400</span> <button class="add-btn-dark" onclick="addToCart('Self Cook - Chicken', 400)">+ Add</button></span>
+                </div>
+                <div class="special-item">
+                    <span>🥩 Mutton (Per Kg)</span>
+                    <span><span class="price-strike">₹600</span> <button class="add-btn-dark" onclick="addToCart('Self Cook - Mutton', 600)">+ Add</button></span>
+                </div>
+            </div>
+        </div>
+
+<div class="filter-container">
+    <button class="filter-btn active" id="btn-all" onclick="filterMenu('all')">All</button>
+    <button class="filter-btn veg" id="btn-veg" onclick="filterMenu('veg')">Veg Only</button>
+    <button class="filter-btn non-veg" id="btn-nonveg" onclick="filterMenu('non-veg')">Non-Veg</button>
+</div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('starters')">Starters</button>
+            <button class="tab-btn" onclick="openTab('maincourse')">Main Course</button>
+            <button class="tab-btn" onclick="openTab('breads')">Rice & Breads</button>
+            <button class="tab-btn" onclick="openTab('drinks')">Beverages</button>
+        </div>
+
+        <div id="starters" class="menu-content active">
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/Green Salad.jpg" alt="Green Salad" class="item-img">
+                <div class="item-info">
+                    <h4>Green Salad</h4>
+                    <span class="price">₹50</span>
+                </div>
+                <button class="add-btn-dark" onclick="addToCart('Green Salad', 50)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/masala peanuts chaat.jpg" alt="Pea Nut Chat" class="item-img">
+                <div class="item-info">
+                    <h4>Pea Nut Chat Masala</h4>
+                    <span class="price">₹70</span>
+                </div>
+                <button class="add-btn-dark" onclick="addToCart('Pea Nut Chat Masala', 70)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/Crispy Corn.jpg" alt="Crispy Corn" class="item-img">
+                <div class="item-info">
+                    <h4>Crispy Corn</h4>
+                    <span class="price">₹110</span>
+                </div>
+                <button class="add-btn-dark" onclick="addToCart('Crispy Corn', 110)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/Chilli-paneer.jpg" alt="Chilly Paneer" class="item-img">
+                <div class="item-info">
+                    <h4>Chilly Paneer</h4>
+                    <span class="price">₹120</span>
+                </div>
+                <button class="add-btn-dark" onclick="addToCart('Chilly Paneer', 120)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/roasted-papad.png" alt="Plain Papad" class="item-img">
+                <div class="item-info">
+                    <h4>Plain Papad</h4>
+                    <span class="price">₹30</span>
+                </div>
+                <button class="add-btn-dark" onclick="addToCart('Plain Papad', 30)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/Masala-papad.jpg" alt="Masala Papad" class="item-img">
+                <div class="item-info">
+                    <h4>Masala Papad</h4>
+                    <span class="price">₹50</span>
+                </div>
+                <button class="add-btn-dark" onclick="addToCart('Masala Papad', 50)">+ Add</button>
+            </div>
+
+            <div class="menu-card-img" data-type="non-veg">
+                <img src="images/boiled-eggs-2.jpg" alt="Boil Egg" class="item-img">
+                <div class="item-info">
+                    <h4>Boil Egg (2pc)</h4>
+                    <span class="price">₹25</span>
+                </div>
+                <button class="add-btn-dark" onclick="addToCart('Boil Egg (2pc)', 25)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="non-veg">
+                <img src="images/Egg-Bhurji-750x750.jpg" alt="Egg Bhujji" class="item-img">
+                <div class="item-info">
+                    <h4>Egg Bhujji (2pc)</h4>
+                    <span class="price">₹50</span>
+                </div>
+                <button class="add-btn-dark" onclick="addToCart('Egg Bhujji', 50)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="non-veg">
+                <img src="images/Fried-Egg-Hero-3-760x570.webp" alt="Egg Fry" class="item-img">
+                <div class="item-info">
+                    <h4>Egg Fry (2pc)</h4>
+                    <span class="price">₹50</span>
+                </div>
+                <button class="add-btn-dark" onclick="addToCart('Egg Fry (2pc)', 50)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="non-veg">
+                <img src="images/chilli_chicken_2.jpg" alt="Chicken Chilly" class="item-img">
+                <div class="item-info">
+                    <h4> Chilly Chicken</h4>
+                    <span class="price">₹150</span>
+                </div>
+                <button class="add-btn-dark" onclick="addToCart('Chicken Chilly', 150)">+ Add</button>
+            </div>
+            <!-- <div class="menu-card-img" data-type="non-veg">
+                <img src="images/Chicken-Tikka.jpg" alt="Chicken Tikka" class="item-img">
+                <div class="item-info">
+                    <h4>Chicken Tikka</h4>
+                    <span class="price">₹180</span>
+                </div>
+                <button class="add-btn-dark" onclick="addToCart('Chicken Tikka', 180)">+ Add</button>
+            </div> -->
+            <!-- <div class="menu-card-img" data-type="non-veg">
+                <img src="images/Chicken Seekh Kebab.webp" alt="Chicken Seekh Kebab" class="item-img">
+                <div class="item-info">
+                    <h4>Chicken Seekh Kebab</h4>
+                    <span class="price">₹160</span>
+                </div>
+                <button class="add-btn-dark" onclick="addToCart('Chicken Seekh Kebab', 160)">+ Add</button>
+            </div> -->
+            <div class="menu-card-img" data-type="non-veg">
+                <img src="images/Fish Fry.jpg" alt="Fish Fry" class="item-img">
+                <div class="item-info">
+                    <h4>Fish Fry (3pc)</h4>
+                    <span class="price">₹150</span>
+                </div>
+                <button class="add-btn-dark" onclick="addToCart('Fish Fry', 150)">+ Add</button>
+            </div>
+        </div>
+
+        <div id="maincourse" class="menu-content">
+            <div class="menu-card-text" data-type="veg">
+                <img src="images/dal fry.jpg" alt="Dal Fry" class="card-img-top">
+                <div class="card-text-body">
+                    <div class="card-header"><span class="veg-icon"></span> <span class="tag">DESI SPECIAL</span></div>
+                    <h4>Dal Fry</h4>
+                    <p>Yellow lentils tempered with spices</p>
+                    <div class="card-bottom">
+                        <span class="price">₹120</span>
+                        <button class="add-rect" onclick="addToCart('Dal Fry', 120)">ADD +</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card-text" data-type="veg">
+                <img src="images/Dal-Tadka.jpg" alt="Dal Tadka" class="card-img-top">
+                <div class="card-text-body">
+                    <div class="card-header"><span class="veg-icon"></span> <span class="tag">DESI SPECIAL</span></div>
+                    <h4>Dal Tadka</h4>
+                    <p>Spicy tempered lentils</p>
+                    <div class="card-bottom">
+                        <span class="price">₹130</span>
+                        <button class="add-rect" onclick="addToCart('Dal Tadka', 130)">ADD +</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card-text" data-type="veg">
+                <img src="images/Sev Tamatar.jpg" alt="Sev Tamatar" class="card-img-top">
+                <div class="card-text-body">
+                    <div class="card-header"><span class="veg-icon"></span> <span class="tag">DESI SPECIAL</span></div>
+                    <h4>Sav Tamatar</h4>
+                    <p>Sev in tomato curry</p>
+                    <div class="card-bottom">
+                        <span class="price">₹110</span>
+                        <button class="add-rect" onclick="addToCart('Sav Tamatar', 110)">ADD +</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card-text" data-type="veg">
+                <img src="images/Malai Kofta.jpg" alt="Malai Kofta" class="card-img-top">
+                <div class="card-text-body">
+                    <div class="card-header"><span class="veg-icon"></span> <span class="tag">DESI SPECIAL</span></div>
+                    <h4>Malai Kopta</h4>
+                    <p>Dumplings in rich cream gravy</p>
+                    <div class="card-bottom">
+                        <span class="price">₹150</span>
+                        <button class="add-rect" onclick="addToCart('Malai Kopta', 150)">ADD +</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card-text" data-type="veg">
+                <img src="images/Paneer-Masala.jpg" alt="Paneer" class="card-img-top">
+                <div class="card-text-body">
+                    <div class="card-header"><span class="veg-icon"></span> <span class="tag">DESI SPECIAL</span></div>
+                    <h4>Paneer</h4>
+                    <p>Classic paneer curry</p>
+                    <div class="card-bottom">
+                        <span class="price">₹150</span>
+                        <button class="add-rect" onclick="addToCart('Paneer', 150)">ADD +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card-text" data-type="non-veg">
+                <img src="images/Egg Curry (2pc).jpg" alt="Egg Curry" class="card-img-top">
+                <div class="card-text-body">
+                    <div class="card-header"><span class="nonveg-icon"></span> <span class="tag">DESI SPECIAL</span></div>
+                    <h4>Egg Curry (2pc)</h4>
+                    <p>Eggs in spicy gravy</p>
+                    <div class="card-bottom">
+                        <span class="price">₹70</span>
+                        <button class="add-rect" onclick="addToCart('Egg Curry (2pc)', 70)">ADD +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card-text variant-card" data-type="non-veg">
+                <img src="images/Fish Fry.jpg" alt="Fish Curry" class="card-img-top">
+                <div class="card-text-body">
+                    <div class="card-header"><span class="nonveg-icon"></span> <span class="tag">DESI SPECIAL</span></div>
+                    <h4>Fish Curry (Lachi)</h4>
+                    <p>Traditional fish curry</p>
+                    <select id="fish-curry-select" class="variant-dropdown">
+                        <option value="400" data-name="- Half (2pc)">- Half (2pc) (₹400)</option>
+                        <option value="600" data-name="- Full (4pc)">- Full (4pc) (₹600)</option>
+                    </select>
+                    <button class="add-full-width" onclick="addVariantToCart('Fish Curry (Lachi)', 'fish-curry-select')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-card-text variant-card" data-type="non-veg">
+                <img src="images/chicken-curry.jpg" alt="Chicken Curry" class="card-img-top">
+                <div class="card-text-body">
+                    <div class="card-header"><span class="nonveg-icon"></span> <span class="tag">DESI SPECIAL</span></div>
+                    <h4>Chicken Curry</h4>
+                    <p>Home style chicken curry</p>
+                    <select id="chicken-curry-select" class="variant-dropdown">
+                        <option value="150" data-name="- Quarter">- Quarter (₹150)</option>
+                        <option value="300" data-name="- Half">- Half (₹300)</option>
+                        <option value="600" data-name="- Full (1 kg)">- Full (1 kg) (₹600)</option>
+                    </select>
+                    <button class="add-full-width" onclick="addVariantToCart('Chicken Curry', 'chicken-curry-select')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-card-text variant-card" data-type="non-veg">
+                <img src="images/Mutton Curry.jpg" alt="Mutton Curry" class="card-img-top">
+                <div class="card-text-body">
+                    <div class="card-header"><span class="nonveg-icon"></span> <span class="tag">DESI SPECIAL</span></div>
+                    <h4>Mutton Curry</h4>
+                    <p>Rich mutton gravy</p>
+                    <select id="mutton-curry-select" class="variant-dropdown">
+                        <option value="300" data-name="- Quarter">- Quarter (₹300)</option>
+                        <option value="550" data-name="- Half">- Half (₹550)</option>
+                        <option value="1100" data-name="- Full (1 kg)">- Full (1 kg) (₹1100)</option>
+                    </select>
+                    <button class="add-full-width" onclick="addVariantToCart('Mutton Curry', 'mutton-curry-select')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="breads" class="menu-content">
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/Plain roti.jpg" alt="Roti" class="item-img">
+                <div class="item-info"><h4>Plain Tawa Roti</h4><span class="price">₹10</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Plain Tawa Roti', 10)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/ButterTawaRoti.webp" alt="Roti" class="item-img">
+                <div class="item-info"><h4>Butter Tawa Roti</h4><span class="price">₹15</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Butter Tawa Roti', 15)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/Roti Bejad Roti.jpeg" alt="Roti" class="item-img">
+                <div class="item-info"><h4>Bejad Roti</h4><span class="price">₹50</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Bejad Roti', 50)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/Plain rice.jpg" alt="Rice" class="item-img">
+                <div class="item-info"><h4>Plain Rice</h4><span class="price">₹90</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Plain Rice', 90)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/jeera rice.webp" alt="Zeera Rice" class="item-img">
+                <div class="item-info"><h4>Zeera Rice</h4><span class="price">₹120</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Zeera Rice', 120)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/Fried rice.jpg" alt="Fried Rice" class="item-img">
+                <div class="item-info"><h4>Fried Rice</h4><span class="price">₹150</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Fried Rice', 150)">+ Add</button>
+            </div>
+        </div>
+
+        <div id="drinks" class="menu-content">
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/PLAIN-CURD.jpg" alt="Curd" class="item-img">
+                <div class="item-info"><h4>Plain Curd</h4><span class="price">₹70</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Plain Curd', 70)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/Plain Raita.jpg" alt="Raita" class="item-img">
+                <div class="item-info"><h4>Plain Raita</h4><span class="price">₹80</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Plain Raita', 80)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/Veg Raita.jpg" alt="Raita" class="item-img">
+                <div class="item-info"><h4>Veg Raita</h4><span class="price">₹100</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Veg Raita', 100)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/Boondi-Raita.jpg" alt="Raita" class="item-img">
+                <div class="item-info"><h4>Boondi Raita</h4><span class="price">₹100</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Boondi Raita', 100)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/Plain Chaach.jpg" alt="Chaach" class="item-img">
+                <div class="item-info"><h4>Plain Chaach</h4><span class="price">₹20</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Plain Chaach', 20)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/Masala Chaach.jpg" alt="Chaach" class="item-img">
+                <div class="item-info"><h4>Masala Chaach</h4><span class="price">₹30</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Masala Chaach', 30)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/water bottle.jpg" alt="Water" class="item-img">
+                <div class="item-info"><h4>Water Bottle</h4><span class="price">₹20</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Water Bottle', 20)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="/images/soda.jpg" alt="Soda" class="item-img">
+                <div class="item-info"><h4>Soda</h4><span class="price">₹30</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Soda', 30)">+ Add</button>
+            </div>
+            <div class="menu-card-img" data-type="veg">
+                <img src="images/Lemon Soda Water.jpg" alt="Lemon Soda" class="item-img">
+                <div class="item-info"><h4>Lemon Soda Water</h4><span class="price">₹50</span></div>
+                <button class="add-btn-dark" onclick="addToCart('Lemon Soda Water', 50)">+ Add</button>
+            </div>
+        </div>
+
+    </section>
+    
+
+<section id="experience" class="customer-experience">
+    <div class="gallery-controls">
+        <span class="toggle-label">Gallery View:</span>
+        <label class="switch">
+            <input type="checkbox" id="galleryToggle" checked onclick="toggleGalleryVisibility()">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <div id="galleryWrapper">
+        <div class="experience-header">
+            <h2 class="serif">📸 Customer Experience</h2>
+            <p>Authentic Garden Dining & Traditional Chulha Cooking</p>
+        </div>
+
+        <div class="experience-grid">
+            <div class="exp-item large" onclick="toggleMedia(this)">
+                <img src="images/a1.jpeg" alt="Angara Garden Night View">
+                <div class="exp-overlay">Night Ambiance</div>
+            </div>
+
+            <div class="exp-item video-item" onclick="toggleMedia(this)">
+                <video src="images/v1.mp4" muted loop></video>
+                <div class="exp-overlay">🎥 Entrance Walkthrough</div>
+            </div>
+
+            <div class="exp-item" onclick="toggleMedia(this)">
+                <img src="images/a6.jpeg" alt="Traditional Handi Cooking">
+                <div class="exp-overlay">Pure Desi Prep</div>
+            </div>
+
+            <div class="exp-item wide video-item" onclick="toggleMedia(this)">
+                <video src="images/v2.mp4" muted loop></video>
+                <div class="exp-overlay">🎥 Garden Vibes</div>
+            </div>
+
+            <div class="exp-item large" onclick="toggleMedia(this)">
+                <img src="images/a7.jpeg" alt="Delicious Egg Curry">
+                <div class="exp-overlay">Chulha Special</div>
+            </div>
+            
+            <div class="exp-item" onclick="toggleMedia(this)">
+                <img src="images/a9.jpeg" alt="Egg Starters">
+                <div class="exp-overlay">Fresh Starters</div>
+            </div>
+            <div class="exp-item" onclick="toggleMedia(this)">
+                <img src="images/a10.jpeg" alt="Roasted Masala Papad">
+                <div class="exp-overlay">Roasted Papad</div>
+            </div>
+             <div class="exp-item" onclick="toggleMedia(this)">
+                <img src="images/A8.jpeg" alt="Mutton Special">
+                <div class="exp-overlay">Mutton Curry</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="mediaLightbox" class="lightbox" onclick="closeMedia()">
+    <span class="close-btn" onclick="closeMedia()">&times;</span>
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+        <img id="lightboxImg" style="display:none;" alt="Enlarged view">
+        <video id="lightboxVid" controls style="display:none;"></video>
+        <div id="lightboxCaption"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<footer class="footer">
+    <div class="footer-container">
+        <h2 class="footer-logo-text">Angara Restro</h2>
+        <p class="footer-contact">
+            📍 Ganesh Gwadi, Panchsheel, Ajmer <br>
+            📞 Phone: <a href="tel:+917690090066">76900-90066</a>
+        </p>
+
+        <div class="festival-promo-card">
+            <img src="/images/Birthday Parties  Group Party.png" alt="Festival Booking" class="promo-img">
+            <div class="promo-content">
+                <span class="festival-title">✨ Special Festival Booking ✨</span>
+                <p>Birthday Parties | Group Parties</p>
+                <span class="booking-status">Booking Available Now!</span>
+            </div>
+        </div>
+<div class="footer-actions">
+    <div class="promo-buttons">
+        <a href="https://youtube.com/@AngaraRestro" target="_blank" class="action-btn youtube-btn">
+            <i class="fab fa-youtube"></i> Subscribe for 10% Discount
+        </a>
+        <a href="https://maps.app.goo.gl/vXqWgsKuiZzqUpy4A" target="_blank" class="action-btn google-btn">
+            <i class="fab fa-google"></i> Give Feedback on Google
+        </a>
+    </div>
+
+    <div class="social-links-container">
+        <p class="social-text">Follow our Journey:</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/naveen_436_/" target="_blank" class="social-icon instagram" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com/AngaraRestro" target="_blank" class="social-icon facebook" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://youtube.com/@AngaraRestro" target="_blank" class="social-icon youtube-icon" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+        <p class="copyright-text">© 2026 Angara Restro. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header-top">
+            <h2 class="cart-title">🛍️ Your Order</h2>
+            <button class="close-cart" onclick="toggleCart()">✕</button>
+        </div>
+        
+        <div class="cart-items" id="cartItemsList">
+            <div class="empty-cart">
+                <span style="font-size: 3rem; color: #ccc;">🍽️</span>
+                <p>Your cart is empty.</p>
+            </div>
+        </div>
+
+        <div class="cart-bottom">
+            <div class="cart-total">
+                <span>Total Bill:</span>
+                <span id="cartTotalValue">₹0</span>
+            </div>
+            <div class="cart-inputs">
+                <label for="tableNumber">TABLE NUMBER</label>
+                <input type="number" id="tableNumber" placeholder="e.g. 5">
+
+                <label for="customerName">YOUR NAME</label>
+                <input type="text" id="customerName" placeholder="e.g. Rahul Kumar">
+            </div>
+            <button class="whatsapp-btn" onclick="sendWhatsAppOrder()">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="margin-right:8px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a5.8 5.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.81 11.81 0 0 0 12.052 0C5.495 0 .16 5.333.158 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.332 11.893-11.893a11.8 11.8 0 0 0-3.48-8.413"/></svg>
+                Place Order on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
